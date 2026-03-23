@@ -1,0 +1,72 @@
+# GDP MCP Server - Docker Compose Configuration
+# Optimized for stdio mode with IBM Bob MCP client
+
+services:
+  gdp-mcp-server:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: gdp-mcp-server:stdio
+    container_name: gdp-mcp-server
+    
+    # Mount configuration file (read-only) - optional
+    volumes:
+      - ./config/config.toml:/config/config.toml:ro
+    
+    # Environment variables for credentials
+    # Load from .env file or set directly
+    environment:
+      # Required credentials
+      - GDP_USERNAME=${GDP_USERNAME}
+      - GDP_PASSWORD=${GDP_PASSWORD}
+      - GDP_CLIENT_ID=${GDP_CLIENT_ID}
+      - GDP_CLIENT_SECRET=${GDP_CLIENT_SECRET}
+      
+      # Required connection settings
+      - GDP_HOST=${GDP_HOST:-localhost}
+      - GDP_PORT=${GDP_PORT:-8443}
+      
+      # Optional: External access (for cloud/NAT/tunnel)
+      - GDP_EXTERNAL_HOST=${GDP_EXTERNAL_HOST}
+      - GDP_EXTERNAL_PORT=${GDP_EXTERNAL_PORT}
+      
+      # Optional: GuardCLI (SSH) settings
+      - GDP_CLI_HOST=${GDP_CLI_HOST}
+      - GDP_CLI_PORT=${GDP_CLI_PORT:-2222}
+      - GDP_CLI_USER=${GDP_CLI_USER:-cli}
+      - GDP_CLI_PASS=${GDP_CLI_PASS}
+      
+      # Optional: Multi-appliance support
+      - GDP_APPLIANCES=${GDP_APPLIANCES}
+      
+      # Optional: SSL and logging
+      - GDP_VERIFY_SSL=${GDP_VERIFY_SSL:-false}
+      - LOG_LEVEL=${LOG_LEVEL:-INFO}
+      - GDP_REQUEST_TIMEOUT=${GDP_REQUEST_TIMEOUT:-60}
+      
+      # Transport mode (default: stdio)
+      - MCP_TRANSPORT=${MCP_TRANSPORT:-stdio}
+    
+    # Enable stdin for stdio communication
+    stdin_open: true
+    tty: true
+    
+    # Security: Run as non-root user
+    user: "1000:1000"
+    
+    # Resource limits (adjust based on your needs)
+    deploy:
+      resources:
+        limits:
+          cpus: '1.0'
+          memory: 512M
+        reservations:
+          cpus: '0.25'
+          memory: 256M
+    
+    restart: unless-stopped
+
+# Note: No networks or volumes needed for stdio mode
+# The container communicates via stdin/stdout with the MCP client
+
+# Made with Bob

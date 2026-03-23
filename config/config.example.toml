@@ -1,0 +1,36 @@
+# GDP MCP Server - Configuration Template
+# Non-sensitive settings that can be version-controlled
+# Copy this file to config.toml and customize as needed
+
+# Note: Sensitive credentials (passwords, secrets) should NEVER be in this file
+# Use environment variables or .env file for credentials
+
+[gdp]
+# GDP appliance connection settings
+# These can be overridden by environment variables
+port = 8443
+verify_ssl = false
+
+# Request timeout in seconds
+request_timeout = 60
+
+[gdp.cli]
+# GuardCLI (SSH) settings
+port = 2222
+user = "cli"
+
+[mcp]
+# MCP server settings
+transport = "stdio"  # Options: "stdio" or "streamable-http"
+
+# Streamable HTTP settings (only used when transport = "streamable-http")
+host = "0.0.0.0"
+port = 8003
+
+[logging]
+# Logging configuration
+level = "INFO"  # Options: DEBUG, INFO, WARNING, ERROR
+
+[security]
+# API key store path (only used in streamable-http mode)
+key_store_path = "/data/keys.json"

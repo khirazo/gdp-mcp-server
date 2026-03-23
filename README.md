@@ -6,6 +6,51 @@ Access 579+ GDP REST API endpoints and the full Guard CLI through **5 intelligen
 
 > Ask your AI assistant to list monitored datasources, run reports, manage security policies, check S-TAP status, run system diagnostics, restart services — all without writing API calls or navigating the GDP console.
 
+## 🚀 Quick Start - Laptop Deployment (Stdio Mode)
+
+**For IBM Bob users on laptops** - the fastest way to get started:
+
+👉 **[See QUICKSTART.md](QUICKSTART.md)** for a 3-step setup guide.
+
+**Summary:**
+1. Clone repo and configure `.env` with GDP credentials
+2. Build Docker container: `docker compose build`
+3. Add to IBM Bob's MCP config and restart
+
+**Stdio mode benefits:**
+- ✅ No API key management needed
+- ✅ No network ports to expose
+- ✅ Lightweight and secure (process-level isolation)
+- ✅ Perfect for laptop/desktop use
+
+```mermaid
+flowchart LR
+  %% Layout direction: Left-to-Right
+  %% Left side: PC/Laptop subgraph
+  subgraph PC[PC / Laptop]
+    direction LR
+    BOB[IBM Bob]
+    MCP[MCP Container]
+    CFG["Configuration<br/>(GDP Credentials)"]
+    BOB -- "stdio" --> MCP
+
+    %% MCP uses local configuration (credentials)
+    MCP -. "uses" .- CFG
+  end
+
+  %% Right side: GDP
+  GDP[GDP Appliance]
+  MCP ==>|"TLS (OAuth2 Token)"| GDP
+
+  %% Optional styling
+  classDef host fill:#0b5d7a,stroke:#0b5d7a,color:#ffffff;
+  classDef store fill:#ffffff,stroke:#ff7f50,color:#ff7f50,stroke-width:2px;
+  classDef default fill:#ffffff,stroke:#999999,color:#333333;
+
+  class BOB,MCP,GDP host
+  class CFG store
+```
+
 ---
 
 ## V1 vs V2 Feature Comparison
@@ -765,7 +810,7 @@ Container logs: docker logs gdp-mcp-server --tail 50
 
 ---
 
-## Support
+## Support (Upstream)
 
 **Found a bug?** [Open an issue](https://github.com/IBM/gdp-mcp-server/issues/new) with steps to reproduce and server logs.
 
@@ -775,6 +820,6 @@ Container logs: docker logs gdp-mcp-server --tail 50
 
 ---
 
-## IBM Public Repository Disclosure
+## IBM Public Repository Disclosure (Upstream)
 
 All content in this repository including code has been provided by IBM under the associated open source software license and IBM is under no obligation to provide enhancements, updates, or support. IBM developers produced this code as an open source project (not as an IBM product), and IBM makes no assertions as to the level of quality nor security, and will not be maintaining this code going forward.
