@@ -15,7 +15,7 @@ This guide helps you set up GDP MCP Server on your laptop for use with IBM Bob M
 
 ```bash
 # Clone the repository
-git clone https://github.ibm.com/ashrivastava/gdp-mcp-server.git
+git clone https://github.ibm.com/khirazo/gdp-mcp-server.git
 cd gdp-mcp-server
 
 # Copy environment template
