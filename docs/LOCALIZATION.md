@@ -345,28 +345,6 @@ Potential extensions (not yet implemented):
 
 ## References
 
-- **Design Brief:** [`work/MCP_Prompt_Localization_Design_Brief_COPILOT.md`](../work/MCP_Prompt_Localization_Design_Brief_COPILOT.md)
 - **Implementation:** [`src/localization.py`](../src/localization.py)
 - **Prompts:** [`src/prompts.py`](../src/prompts.py)
 - **Example Locales:** [`src/locales/ja.yml`](../src/locales/ja.yml), [`src/locales/fr.yml`](../src/locales/fr.yml)
-
-## Contributing Translations
-
-We welcome translations for additional languages! To contribute:
-
-1. Fork the repository
-2. Create a new locale file in `src/locales/`
-3. Translate all 8 prompts following the schema
-4. Test with the server
-5. Submit a pull request
-
-**Translation Checklist:**
-- [ ] File named correctly (`<lang_code>.yml`)
-- [ ] All 8 prompts translated
-- [ ] Each prompt has `title`, `description`, `trigger_phrases`
-- [ ] At least 3 trigger phrases per prompt
-- [ ] Tested with the server
-- [ ] No YAML syntax errors
-- [ ] Natural, idiomatic language
-
-Thank you for helping make GDP MCP Server accessible to more users worldwide! 🌍
