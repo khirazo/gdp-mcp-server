@@ -1,3 +1,4 @@
+# This file includes AI-generated code - Review and modify as needed
 """GDP Report Templates — MCP Prompts for standardized, professional output.
 
 Each prompt is a report template that instructs the AI to:
@@ -7,25 +8,48 @@ Each prompt is a report template that instructs the AI to:
 
 This ensures that the same report generates the same format every time,
 regardless of who runs it — Devan's #1 request for demo consistency.
+
+Localization Support:
+  - English descriptions are canonical and always present
+  - Additional languages loaded from src/locales/*.yml files
+  - Multi-language descriptions improve semantic prompt selection
+  - No code changes needed to add new languages
 """
 
 from __future__ import annotations
 
 import logging
 
+from .localization import get_locale_loader
+
 logger = logging.getLogger("gdp_mcp")
 
 
 def register_prompts(mcp) -> None:
-    """Register all GDP report template prompts on the given FastMCP instance."""
+    """Register all GDP report template prompts with localization support.
+    
+    Loads locale files from src/locales/ and augments English descriptions
+    with translations to improve semantic prompt selection across languages.
+    """
+    loader = get_locale_loader()
+    
+    # Log available languages
+    available_langs = loader.get_available_languages()
+    if available_langs:
+        logger.info(f"Prompt localization enabled for: {', '.join(available_langs)}")
+    else:
+        logger.info("No locale files found - using English only")
 
     # ── 1. Security Assessment Report ───────────────────────────
 
     @mcp.prompt(
         name="security_assessment_report",
-        description=(
-            "Generate a comprehensive Security Assessment Report for a GDP appliance. "
-            "Covers datasources, policies, violations, system health, and recommendations."
+        description=loader.build_multilingual_description(
+            base_description=(
+                "Generate a comprehensive Security Assessment Report for a GDP appliance. "
+                "Covers datasources, policies, violations, system health, and recommendations."
+            ),
+            prompt_name="security_assessment_report",
         ),
     )
     def security_assessment_report(
@@ -131,9 +155,12 @@ Based on the data gathered above, provide 3-5 actionable recommendations. Priori
 
     @mcp.prompt(
         name="compliance_summary_report",
-        description=(
-            "Generate a Compliance Summary Report showing policy status, "
-            "violation trends, and compliance posture across the GDP environment."
+        description=loader.build_multilingual_description(
+            base_description=(
+                "Generate a Compliance Summary Report showing policy status, "
+                "violation trends, and compliance posture across the GDP environment."
+            ),
+            prompt_name="compliance_summary_report",
         ),
     )
     def compliance_summary_report(
@@ -224,9 +251,12 @@ For each gap identified above, provide a specific remediation step:
 
     @mcp.prompt(
         name="datasource_inventory_report",
-        description=(
-            "Generate a Datasource Inventory Report listing all monitored "
-            "datasources with connection details, types, and status."
+        description=loader.build_multilingual_description(
+            base_description=(
+                "Generate a Datasource Inventory Report listing all monitored "
+                "datasources with connection details, types, and status."
+            ),
+            prompt_name="datasource_inventory_report",
         ),
     )
     def datasource_inventory_report(
@@ -298,9 +328,12 @@ If all datasources are healthy, state: "✅ All datasources reporting normally."
 
     @mcp.prompt(
         name="activity_monitoring_report",
-        description=(
-            "Generate an Activity Monitoring Report showing database activity "
-            "patterns, top users, and anomalies detected by GDP."
+        description=loader.build_multilingual_description(
+            base_description=(
+                "Generate an Activity Monitoring Report showing database activity "
+                "patterns, top users, and anomalies detected by GDP."
+            ),
+            prompt_name="activity_monitoring_report",
         ),
     )
     def activity_monitoring_report(
@@ -378,9 +411,12 @@ Based on the activity data, provide recommendations for security tuning.
 
     @mcp.prompt(
         name="system_health_report",
-        description=(
-            "Generate a System Health Report using Guard CLI diagnostics — "
-            "CPU, memory, disk, processes, and network status."
+        description=loader.build_multilingual_description(
+            base_description=(
+                "Generate a System Health Report using Guard CLI diagnostics — "
+                "CPU, memory, disk, processes, and network status."
+            ),
+            prompt_name="system_health_report",
         ),
     )
     def system_health_report(
@@ -493,9 +529,12 @@ List key GDP processes and their status:
 
     @mcp.prompt(
         name="vulnerability_assessment_report",
-        description=(
-            "Generate a Vulnerability Assessment Report covering VA scan "
-            "results, findings by severity, and remediation guidance."
+        description=loader.build_multilingual_description(
+            base_description=(
+                "Generate a Vulnerability Assessment Report covering VA scan "
+                "results, findings by severity, and remediation guidance."
+            ),
+            prompt_name="vulnerability_assessment_report",
         ),
     )
     def vulnerability_assessment_report(
@@ -583,9 +622,12 @@ Ordered list of actions by impact:
 
     @mcp.prompt(
         name="stap_status_report",
-        description=(
-            "Generate an S-TAP Status Report showing all inspection engines, "
-            "their connectivity, versions, and monitored datasources."
+        description=loader.build_multilingual_description(
+            base_description=(
+                "Generate an S-TAP Status Report showing all inspection engines, "
+                "their connectivity, versions, and monitored datasources."
+            ),
+            prompt_name="stap_status_report",
         ),
     )
     def stap_status_report(
@@ -665,9 +707,12 @@ Flag any S-TAPs running outdated versions.
 
     @mcp.prompt(
         name="policy_violations_report",
-        description=(
-            "Generate a Policy Violations Report with violation details, "
-            "trends, affected users, and remediation steps."
+        description=loader.build_multilingual_description(
+            base_description=(
+                "Generate a Policy Violations Report with violation details, "
+                "trends, affected users, and remediation steps."
+            ),
+            prompt_name="policy_violations_report",
         ),
     )
     def policy_violations_report(

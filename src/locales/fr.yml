@@ -1,0 +1,98 @@
+# French localization for GDP MCP Server prompts
+# Localisation française - Modèles de rapports GDP
+#
+# This file provides French translations for MCP prompt templates.
+# Each prompt includes:
+#   - title: Short display name
+#   - description: Detailed explanation of what the prompt does
+#   - trigger_phrases: Natural language examples that should trigger this prompt
+
+security_assessment_report:
+  title: "Rapport d'évaluation de sécurité"
+  description: >
+    Générer un rapport d'évaluation de sécurité complet pour une appliance GDP.
+    Couvre les sources de données, les politiques, les violations, la santé du système et les recommandations.
+  trigger_phrases:
+    - Générer un rapport d'évaluation de sécurité pour GDP
+    - Évaluer la posture de sécurité de Guardium
+    - Créer un rapport de sécurité complet
+    - J'ai besoin d'une évaluation de sécurité
+
+compliance_summary_report:
+  title: "Rapport de conformité"
+  description: >
+    Générer un rapport de conformité montrant l'état des politiques, les tendances de violation
+    et la posture de conformité dans l'environnement GDP.
+  trigger_phrases:
+    - Générer un rapport de conformité
+    - Vérifier l'état de conformité
+    - Afficher les violations de politique
+    - Rapport de conformité nécessaire
+
+datasource_inventory_report:
+  title: "Inventaire des sources de données"
+  description: >
+    Générer un rapport d'inventaire listant toutes les sources de données surveillées
+    avec les détails de connexion, les types et l'état.
+  trigger_phrases:
+    - Générer un inventaire des sources de données
+    - Lister toutes les bases de données surveillées
+    - Afficher les sources de données connectées
+    - Inventaire des datasources
+
+activity_monitoring_report:
+  title: "Rapport de surveillance d'activité"
+  description: >
+    Générer un rapport de surveillance d'activité montrant les modèles d'activité de base de données,
+    les principaux utilisateurs et les anomalies détectées par GDP.
+  trigger_phrases:
+    - Générer un rapport de surveillance d'activité
+    - Analyser l'activité de la base de données
+    - Afficher les utilisateurs les plus actifs
+    - Rapport d'activité nécessaire
+
+system_health_report:
+  title: "Rapport de santé du système"
+  description: >
+    Générer un rapport de santé du système utilisant les diagnostics Guard CLI.
+    Inclut CPU, mémoire, disque, processus et état du réseau.
+  trigger_phrases:
+    - Générer un rapport de santé du système
+    - Vérifier l'état de l'appliance GDP
+    - Diagnostiquer le système Guardium
+    - Rapport de santé nécessaire
+
+vulnerability_assessment_report:
+  title: "Rapport d'évaluation des vulnérabilités"
+  description: >
+    Générer un rapport d'évaluation des vulnérabilités couvrant les résultats de scan VA,
+    les découvertes par gravité et les conseils de remédiation.
+  trigger_phrases:
+    - Générer un rapport d'évaluation des vulnérabilités
+    - Afficher les résultats du scan VA
+    - Évaluer les vulnérabilités de sécurité
+    - Rapport de vulnérabilités nécessaire
+
+stap_status_report:
+  title: "Rapport d'état S-TAP"
+  description: >
+    Générer un rapport d'état S-TAP montrant tous les moteurs d'inspection,
+    leur connectivité, versions et sources de données surveillées.
+  trigger_phrases:
+    - Générer un rapport d'état S-TAP
+    - Vérifier l'état des moteurs d'inspection
+    - Afficher la connectivité S-TAP
+    - Rapport S-TAP nécessaire
+
+policy_violations_report:
+  title: "Rapport de violations de politique"
+  description: >
+    Générer un rapport de violations de politique avec les détails des violations,
+    les tendances, les utilisateurs affectés et les étapes de remédiation.
+  trigger_phrases:
+    - Générer un rapport de violations de politique
+    - Afficher les violations de sécurité
+    - Analyser les tendances de violation
+    - Rapport de violations nécessaire
+
+# Made with Bob

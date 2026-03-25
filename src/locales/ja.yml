@@ -1,0 +1,100 @@
+# Japanese localization for GDP MCP Server prompts
+# 日本語ローカライゼーション - GDPレポートテンプレート
+#
+# This file provides Japanese translations for all MCP prompt templates.
+# Each prompt includes:
+#   - title: Short display name
+#   - description: Detailed explanation of what the prompt does
+#   - trigger_phrases: Natural language examples that should trigger this prompt
+
+security_assessment_report:
+  title: "セキュリティ評価レポート"
+  description: >
+    GDPアプライアンスのセキュリティ状況を包括的に評価するレポートを生成します。
+    データソース、ポリシー、違反、システム健全性、推奨事項を含みます。
+  trigger_phrases:
+    - GDPアプライアンスのセキュリティ評価レポートを生成してください
+    - GDPのセキュリティ状況を評価したい
+    - Guardiumのセキュリティ評価を実施してください
+    - セキュリティアセスメントレポートを作成して
+    - GDPのセキュリティレポートが必要です
+
+compliance_summary_report:
+  title: "コンプライアンスサマリーレポート"
+  description: >
+    ポリシーステータス、違反トレンド、GDP環境全体のコンプライアンス状況を示すレポートを生成します。
+  trigger_phrases:
+    - コンプライアンスサマリーレポートを作成してください
+    - ポリシー違反の状況を確認したい
+    - GDPのコンプライアンス状況を報告して
+    - コンプライアンスレポートが必要です
+    - ポリシーの遵守状況を確認したい
+
+datasource_inventory_report:
+  title: "データソースインベントリレポート"
+  description: >
+    監視対象の全データソースを接続詳細、タイプ、ステータスとともに一覧表示するレポートを生成します。
+  trigger_phrases:
+    - データソースインベントリレポートを生成してください
+    - 監視中のデータソース一覧を表示して
+    - GDPで管理しているデータベースのリストが欲しい
+    - データソースの棚卸しレポートを作成して
+    - 接続されているデータソースを確認したい
+
+activity_monitoring_report:
+  title: "アクティビティ監視レポート"
+  description: >
+    データベースアクティビティパターン、トップユーザー、GDPが検出した異常を示すレポートを生成します。
+  trigger_phrases:
+    - アクティビティ監視レポートを生成してください
+    - データベースアクティビティの状況を確認したい
+    - ユーザーアクティビティのレポートが必要です
+    - データベースの利用状況を分析して
+    - 異常なアクティビティを検出したい
+
+system_health_report:
+  title: "システムヘルスレポート"
+  description: >
+    Guard CLI診断を使用したシステムヘルスレポートを生成します。
+    CPU、メモリ、ディスク、プロセス、ネットワークステータスを含みます。
+  trigger_phrases:
+    - システムヘルスレポートを生成してください
+    - GDPアプライアンスの健全性を確認したい
+    - システムリソースの使用状況を確認して
+    - GDPの動作状態をチェックしたい
+    - システム診断レポートが必要です
+
+vulnerability_assessment_report:
+  title: "脆弱性評価レポート"
+  description: >
+    脆弱性評価スキャン結果、深刻度別の検出事項、修復ガイダンスを含むレポートを生成します。
+  trigger_phrases:
+    - 脆弱性評価レポートを生成してください
+    - VAスキャン結果を確認したい
+    - データベースの脆弱性を評価して
+    - セキュリティ脆弱性のレポートが必要です
+    - 脆弱性スキャンの結果を表示して
+
+stap_status_report:
+  title: "S-TAPステータスレポート"
+  description: >
+    全ての検査エンジン（S-TAP）の接続状況、バージョン、監視対象データソースを示すレポートを生成します。
+  trigger_phrases:
+    - S-TAPステータスレポートを生成してください
+    - 検査エンジンの状態を確認したい
+    - S-TAPの接続状況を表示して
+    - インスペクションエンジンのレポートが必要です
+    - S-TAPエージェントの状態を確認したい
+
+policy_violations_report:
+  title: "ポリシー違反レポート"
+  description: >
+    違反の詳細、トレンド、影響を受けたユーザー、修復手順を含むポリシー違反レポートを生成します。
+  trigger_phrases:
+    - ポリシー違反レポートを生成してください
+    - セキュリティポリシー違反の状況を確認したい
+    - 違反の詳細を表示して
+    - ポリシー違反のトレンドを分析したい
+    - 違反したユーザーのリストが必要です
+
+# Made with Bob

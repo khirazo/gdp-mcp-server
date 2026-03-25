@@ -114,6 +114,8 @@ Every feature with a real example showing what it does in practice.
 | 31 | **Vulnerability Assessment Report** | No | Yes | VA findings sorted by severity → Critical/High/Medium with remediation steps |
 | 32 | **S-TAP Status Report** | No | Yes | Inspection engine inventory: versions, connectivity, monitored datasources per S-TAP |
 | 33 | **Policy Violations Report** | No | Yes | `policy_violations_report(time_period="last 7 days")` → violations by policy/user/severity |
+| 34 | **Multi-Language Prompt Selection** | No | Yes | Ask in Japanese: "GDPのセキュリティ評価を実施して" → triggers `security_assessment_report` |
+| 35 | **User-Extensible Localization** | No | Yes | Drop `de.yml` in `src/locales/` → German support enabled, no code changes needed |
 
 ### Architecture & Multi-Appliance
 
@@ -197,8 +199,9 @@ Every feature with a real example showing what it does in practice.
 └─────────────────────────────────────────────────────────────┘
 ```
 
-**Example prompts you can use:**
+**Example prompts you can use (in any supported language):**
 
+**English:**
 - *"List all monitored datasources on the GDP appliance"*
 - *"Run the 'Database Activity' report on GDP"*
 - *"Show all security policies configured on GDP"*
@@ -208,6 +211,18 @@ Every feature with a real example showing what it does in practice.
 - *"What's the system health? Check memory and disk."*
 - *"Show the network configuration"*
 - *"Restart the inspection engine"* (asks for confirmation — destructive)
+
+**Japanese (日本語):**
+- *"GDPアプライアンスのセキュリティ評価レポートを生成してください"*
+- *"データソースインベントリレポートを作成して"*
+- *"システムヘルスレポートが必要です"*
+
+**French (Français):**
+- *"Générer un rapport d'évaluation de sécurité pour GDP"*
+- *"Afficher l'inventaire des sources de données"*
+- *"Vérifier l'état de santé du système"*
+
+> **Multi-Language Support:** The server automatically detects your language and matches your intent to the correct prompt. Add more languages by dropping `.yml` files in `src/locales/`. See [docs/LOCALIZATION.md](docs/LOCALIZATION.md) for details.
 
 Authentication happens automatically — the server authenticates to GDP on first request and refreshes the token as needed. No passwords in your prompts, ever.
 
