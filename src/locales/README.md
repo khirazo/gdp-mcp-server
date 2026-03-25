@@ -72,14 +72,3 @@ Use ISO 639-1 two-letter codes:
 
 For detailed documentation, see:
 - **User Guide**: [`docs/LOCALIZATION.md`](../../docs/LOCALIZATION.md)
-
-## Contributing
-
-We welcome translations! Please ensure:
-- All 8 prompts are translated
-- Natural, idiomatic language
-- At least 3 trigger phrases per prompt
-- Valid YAML syntax
-- Tested with the server
-
-Submit translations via pull request. Thank you! 🌍
