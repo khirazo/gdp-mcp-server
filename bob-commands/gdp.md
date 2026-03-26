@@ -84,18 +84,6 @@ Bob internally executes:
   4. Formats and presents results
 ```
 
-## Benefits
-
-- ✅ **Consistent Routing**: Always uses the correct MCP server
-- ✅ **No Ambiguity**: Clear that GDP operations are intended
-- ✅ **Full Access**: All 579+ APIs and Guard CLI available
-- ✅ **Multi-Appliance**: Works with single or multiple GDP appliances
-- ✅ **Authentication**: Handled automatically by the server
-
-## Related Commands
-
-- `/gdp-report` - Generate professional GDP reports (see gdp-report.md)
-
 ## Technical Details
 
 - **MCP Server**: gdp-mcp-server
