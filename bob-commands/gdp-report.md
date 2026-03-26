@@ -292,15 +292,14 @@ All reports follow these standards:
 
 ## Related Commands
 
-- `/gdp` - General GDP operations (see gdp.md)
+- `/gdp` - General GDP operations and ad-hoc queries
 
 ## Technical Details
 
 - **MCP Server**: gdp-mcp-server
 - **Transport**: stdio (local process communication)
-- **Report Templates**: Defined in `src/prompts.py`
-- **Consistency**: Same templates as MCP Prompts (when supported)
 - **Authentication**: OAuth2 (REST API), SSH (Guard CLI)
+- **API Coverage**: 579+ REST API endpoints across 36 categories
 
 ## Future: MCP Prompts
 
@@ -345,18 +344,7 @@ Generates Vulnerability Assessment Report for appliance `cm01`.
 
 ## Support
 
-For issues or questions:
-
-1. **GDP MCP Server Issues**: Check `README.md` and `docs/LOCALIZATION.md`
-2. **Slash Command Issues**: Check `bob-commands/README.md`
-3. **IBM Bob Issues**: Consult IBM Bob documentation
-
-## Related Documentation
-
-- **Command README**: `bob-commands/README.md`
-- **Localization Guide**: `docs/LOCALIZATION.md`
-- **MCP Server README**: `README.md`
-- **Report Templates**: `src/prompts.py`
+For issues or questions, consult IBM Bob documentation or the GDP MCP Server documentation.
 
 ---
 
